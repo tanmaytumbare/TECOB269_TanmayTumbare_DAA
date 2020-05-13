@@ -1,0 +1,56 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+ int *a=new int[500];
+int size=1;
+
+void multiply(int x)
+    {
+    
+    int carry=0;
+    int product=0;
+    for(int i=0;i<size;i++)
+        {
+        product =x*a[i] +carry;
+        a[i]=product%10;
+        carry=product/10;
+        
+    }
+    while(carry!=0)
+        {
+        a[size]=carry%10;
+        carry=carry/10;
+        size++;
+        
+    }
+    
+    
+    
+    
+    
+
+}
+
+
+int main() {
+   int N=0;
+    cin>>N;
+   
+    
+    a[0]=1;
+    
+    for(int i=2;i<=N;i++)
+        {
+        multiply(i);
+        
+    }
+   for(int i=1;i<=size;i++)
+       {
+       cout<<a[size-i];
+   }
+    
+    return 0;
+}
